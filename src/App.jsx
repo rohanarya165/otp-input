@@ -13,13 +13,12 @@ function App() {
 
   function handleChange(value, index) {
     if (isNaN(value)) return;
-
-    let newVal = [...inputVal];
-    newVal[index] = value.slice(-1);
-
+    const newValue = value.trim();
+    const newVal = [...inputVal];
+    newVal[index] = newValue.slice(-1);
     setInputVal(newVal);
-    refArr.current[index + 1]?.focus();
-    console.log(value, inputVal);
+
+    newVal && refArr.current[index + 1]?.focus();
   }
 
   function hadleKeyDown(e, index) {
